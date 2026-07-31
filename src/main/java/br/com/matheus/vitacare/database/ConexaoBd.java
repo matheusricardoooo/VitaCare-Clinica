@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 // cria um fluxo para que o conteúdo do arquivo config.properties possa ser lido.
 import java.io.InputStream;
-// serve para tratamento de erro de leitura do arquivo config
+// serve para tratamento de erro de leitura do arquivo configuração
 import java.io.IOException;
 
 public class ConexaoBd {
