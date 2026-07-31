@@ -16,6 +16,7 @@ import java.io.IOException;
 public class ConexaoBd {
 
     public static Connection getConnection() {
-
+        // objeto criado para guardas as chaves recebidas do config.properties
+        Properties properties = new Properties();
     }
 }
