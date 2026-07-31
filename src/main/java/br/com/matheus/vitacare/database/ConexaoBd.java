@@ -11,4 +11,7 @@ import java.sql.SQLException;
 
 public class ConexaoBd {
 
+    public static Connection getConnection() {
+
+    }
 }
