@@ -22,7 +22,7 @@ public class ConexaoBd {
         // abre o arquivo config como fluxo de leitura e fecha automaticamente
         try (InputStream input = ConexaoBd.class.getClassLoader().getResourceAsStream("config.properties")) {
             // verifica se o arquivo foi encontrado
-            if (input != null) {
+            if (input == null) {
                 // se não foi encontrado o programa é interrompido avisando o problema
                 throw new RuntimeException("Arquivo config.properties não encontrado");
             }
@@ -35,9 +35,9 @@ public class ConexaoBd {
         }
 
         // ler os valores da chave do config (url,usuario,senha)
-        String url = properties.getProperty("url");
-        String usuario = properties.getProperty("usuario");
-        String senha = properties.getProperty("senha");
+        String url = properties.getProperty("db.url");
+        String usuario = properties.getProperty("db.user");
+        String senha = properties.getProperty("db.senha");
 
     }
 }
