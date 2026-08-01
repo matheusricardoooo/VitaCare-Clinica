@@ -39,5 +39,15 @@ public class ConexaoBd {
         String usuario = properties.getProperty("db.user");
         String senha = properties.getProperty("db.senha");
 
+        try {
+            // conexão com o banco de dados a partir do que o driver entrega
+            Connection coon = DriverManager.getConnection(url, usuario, senha);
+            System.out.println("BANCO DE DADOS CONECTADO COM SUCESSO!");
+            return coon; // retorna a conexão com o banco de dados
+        }
+        // captura possível erro de conexão com o banco de dados
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO CONECTAR COM O BANCO DE DADOS", e);
+        }
     }
 }
