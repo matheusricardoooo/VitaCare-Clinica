@@ -33,5 +33,11 @@ public class ConexaoBd {
         catch (IOException e) {
             throw new RuntimeException("ERRO AO LER O ARQUIVO DE CONFIGURAÇÃO", e);
         }
+
+        // ler os valores da chave do config (url,usuario,senha)
+        String url = properties.getProperty("url");
+        String usuario = properties.getProperty("usuario");
+        String senha = properties.getProperty("senha");
+
     }
 }
