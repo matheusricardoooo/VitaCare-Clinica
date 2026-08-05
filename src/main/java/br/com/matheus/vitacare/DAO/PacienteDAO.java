@@ -128,4 +128,8 @@ public class PacienteDAO {
             throw new RuntimeException("ERRO AO BUSCAR PACIENTE", e);
         }
     }
+
+    public void atualizarNomePaciente(String cpf, String novoNome) {
+
+    }
 }
