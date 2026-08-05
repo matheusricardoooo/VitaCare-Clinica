@@ -8,6 +8,11 @@ import java.sql.Connection;
 public class PacienteDAO {
     public void cadastrarPaciente(Paciente paciente) {
         Connection conexaoBanco = ConexaoBd.getConnection();
+        String comandoSql =
+                "INSERT INTO pacientes" +
+                        "(nome_paciente, telefone_paciente, cpf_paciente, email_paciente,data_nascimento_paciente)" +
+                        "VALUES(?,?,?,?,?)";
+
 
     }
 }
