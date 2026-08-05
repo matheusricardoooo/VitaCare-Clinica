@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class PacienteDAO {
     public void cadastrarPaciente(Paciente paciente) {
@@ -46,7 +47,10 @@ public class PacienteDAO {
             PreparedStatement stmt = conexaoBanco.prepareStatement(consultaSql)
         ) {
 
-        } catch (SQLException e) {
+            ResultSet rs = stmt.executeQuery();
+
+        }
+        catch (SQLException e) {
             throw new RuntimeException("ERRO AO CADASTRAR PACIENTE", e);
         }
     }
