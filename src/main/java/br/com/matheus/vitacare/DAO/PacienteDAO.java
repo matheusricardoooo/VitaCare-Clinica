@@ -36,4 +36,8 @@ public class PacienteDAO {
             throw new RuntimeException("ERRO AO CADASTRAR PACIENTE", e);
         }
     }
+
+    public void visualizarPaacientesCadastrados() {
+
+    }
 }
