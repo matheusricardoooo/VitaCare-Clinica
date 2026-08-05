@@ -245,7 +245,7 @@ public class PacienteDAO {
         }
     }
 
-    public void deletarPaciente() {
+    public void deletarPaciente(String cpf) {
         String deletarPacienteBanco =
                 "DELETE FROM pacientes " +
                         "WHERE cpf_paciente = ? ";
@@ -255,7 +255,18 @@ public class PacienteDAO {
                 PreparedStatement stmt = conexaoBanco.prepareStatement(deletarPacienteBanco);
         ) {
 
-
+            stmt.setString(1, cpf);
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("====================================================");
+                System.out.println("        SUCESSO: PACIENTE DELETADO COM ÊXITO        ");
+                System.out.println("====================================================");
+            }
+            else {
+                System.out.println("===========================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM PACIENTE COM ESTE CPF         ");
+                System.out.println("===========================================================");
+            }
 
         } catch (SQLException e) {
             throw new RuntimeException("ERRO AO EXCLUIR PACIENTE", e);
