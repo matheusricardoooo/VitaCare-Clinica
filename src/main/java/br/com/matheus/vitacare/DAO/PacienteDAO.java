@@ -102,7 +102,7 @@ public class PacienteDAO {
                 String telefone = rs.getString("telefone_paciente");
                 String Cpf = rs.getString("cpf_paciente");
                 String email = rs.getString("email_paciente");
-                Date data = rs.getDate("data_nascimento_pasciente");
+                Date data = rs.getDate("data_nascimento_paciente");
 
                 System.out.println("=================================================");
                 System.out.println("ID: " + id);
