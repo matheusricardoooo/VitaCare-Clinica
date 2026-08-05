@@ -42,7 +42,8 @@ public class PacienteDAO {
         String consultaSql = "SELECT * FROM pacientes";
 
         try (
-
+            Connection conexaoBanco = ConexaoBd.getConnection();
+            PreparedStatement stmt = conexaoBanco.prepareStatement(consultaSql)
         ) {
 
         } catch (SQLException e) {
