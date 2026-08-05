@@ -94,6 +94,9 @@ public class PacienteDAO {
                 PreparedStatement stmt = conexaoBanco.prepareStatement(buscaNoBanco);
         ) {
 
+            stmt.setString(1, cpf);
+            ResultSet rs = stmt.executeQuery();
+
         } catch (SQLException e) {
             throw new RuntimeException("ERRO AO BUSCAR PACIENTE", e);
         }
