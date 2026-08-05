@@ -252,8 +252,10 @@ public class PacienteDAO {
 
         try (
                 Connection conexaoBanco = ConexaoBd.getConnection();
-                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+                PreparedStatement stmt = conexaoBanco.prepareStatement(deletarPacienteBanco);
         ) {
+
+
 
         } catch (SQLException e) {
             throw new RuntimeException("ERRO AO EXCLUIR PACIENTE", e);
