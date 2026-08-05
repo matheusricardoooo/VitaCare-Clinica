@@ -119,9 +119,9 @@ public class PacienteDAO {
                 System.out.println("=================================================");
             }
             else {
-                System.out.println("==============================================================");
-                System.out.println("        AVISO: NÃO HÁ USUÁRIO CADASTRADO COM ESTE CPF         ");
-                System.out.println("==============================================================");
+                System.out.println("===============================================================");
+                System.out.println("        AVISO: NÃO HÁ PACIENTE CADASTRADO COM ESTE CPF         ");
+                System.out.println("===============================================================");
             }
 
         } catch (SQLException e) {
@@ -130,6 +130,9 @@ public class PacienteDAO {
     }
 
     public void atualizarNomePaciente(String cpf, String novoNome) {
-
+        String atualizacaoBanco =
+                "UPDATE pacientes" +
+                "SET nome_paciente = ? " +
+                "WHERE cpf_paciente = ?";
     }
 }
