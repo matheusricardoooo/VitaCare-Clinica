@@ -13,7 +13,8 @@ public class PacienteDAO {
     public void cadastrarPaciente(Paciente paciente) {
         String comandoSql =
                 "INSERT INTO pacientes" +
-                        "(nome_paciente, telefone_paciente, cpf_paciente, email_paciente,data_nascimento_paciente)" +
+                        "(nome_paciente, telefone_paciente, cpf_paciente," +
+                        " email_paciente,data_nascimento_paciente)" +
                         "VALUES(?,?,?,?,?)";
 
         try(
@@ -82,5 +83,8 @@ public class PacienteDAO {
         catch (SQLException e) {
             throw new RuntimeException("ERRO AO CADASTRAR PACIENTE", e);
         }
+    }
+    public void buscarPacientePorCpf(String cpf) {
+
     }
 }
