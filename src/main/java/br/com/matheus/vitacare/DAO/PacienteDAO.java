@@ -244,4 +244,8 @@ public class PacienteDAO {
             throw new RuntimeException("ERRO AO ATUALIZAR TELEFONE DO PACIENTE", e);
         }
     }
+
+    public void deletarPaciente() {
+
+    }
 }
