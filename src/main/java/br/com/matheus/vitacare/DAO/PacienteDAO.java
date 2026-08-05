@@ -186,4 +186,33 @@ public class PacienteDAO {
             throw new RuntimeException("ERRO AO ATUALIZAR TELEFONE DO PACIENTE", e);
         }
     }
+
+    public void atualizarEmailPaciente(String cpf, String novoEmail) {
+        String atualizacaoBanco =
+                "UPDATE pacientes " +
+                        "SET email_paciente = ? " +
+                        "WHERE cpf_paciente = ?";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+        ) {
+            stmt.setString(1, novoEmail);
+            stmt.setString(2, cpf);
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("=================================================");
+                System.out.println("        SUCESSO: EMAIL ALTERADO COM ÊXITO        ");
+                System.out.println("=================================================");
+            }
+            else {
+                System.out.println("===========================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM PACIENTE COM ESTE EMAIL       ");
+                System.out.println("===========================================================");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO ATUALIZAR EMAIL DO PACIENTE", e);
+        }
+    }
 }
