@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.ResultSet;
 
 public class PacienteDAO {
     public void cadastrarPaciente(Paciente paciente) {
@@ -38,7 +37,10 @@ public class PacienteDAO {
         }
     }
 
-    public void visualizarPaacientesCadastrados() {
+    public void listarPacientesCadastrados() {
+
+        String consultaSql = "SELECT * FROM pacientes";
+
         try (
 
         ) {
