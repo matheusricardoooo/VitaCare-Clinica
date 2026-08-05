@@ -96,6 +96,33 @@ public class PacienteDAO {
 
             stmt.setString(1, cpf);
             ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id_paciente");
+                String nome = rs.getString("nome_paciente");
+                String telefone = rs.getString("telefone_paciente");
+                String Cpf = rs.getString("cpf_paciente");
+                String email = rs.getString("email_paciente");
+                Date data = rs.getDate("data_nascimento_pasciente");
+
+                System.out.println("=================================================");
+                System.out.println("ID: " + id);
+                System.out.println("------------------------------------");
+                System.out.println("NOME: " + nome);
+                System.out.println("------------------------------------");
+                System.out.println("TELEFONE: " + telefone);
+                System.out.println("------------------------------------");
+                System.out.println("CPF: " + Cpf);
+                System.out.println("------------------------------------");
+                System.out.println("EMAIL: " + email);
+                System.out.println("------------------------------------");
+                System.out.println("DATA NASCIMENTO: " + data);
+                System.out.println("=================================================");
+            }
+            else {
+                System.out.println("==============================================================");
+                System.out.println("        AVISO: NÃO HÁ USUÁRIO CADASTRADO COM ESTE CPF         ");
+                System.out.println("==============================================================");
+            }
 
         } catch (SQLException e) {
             throw new RuntimeException("ERRO AO BUSCAR PACIENTE", e);
