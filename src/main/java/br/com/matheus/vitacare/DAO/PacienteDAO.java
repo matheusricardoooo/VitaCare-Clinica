@@ -88,5 +88,12 @@ public class PacienteDAO {
         String buscaNoBanco =
                 "SELECT * FROM pacientes" +
                 "WHERE cpf_paciente = ?";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(buscaNoBanco);
+        ) {
+
+        }
     }
 }
