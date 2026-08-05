@@ -85,6 +85,8 @@ public class PacienteDAO {
         }
     }
     public void buscarPacientePorCpf(String cpf) {
-
+        String buscaNoBanco =
+                "SELECT * FROM pacientes" +
+                "WHERE cpf_paciente = ?";
     }
 }
