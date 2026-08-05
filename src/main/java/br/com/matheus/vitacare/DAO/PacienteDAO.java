@@ -75,7 +75,7 @@ public class PacienteDAO {
             }
             if (!buscaPorCadastros) {
                 System.out.println("========================================================");
-                System.out.println("        AVISO: NÃO HA NENHUM USUÁRIO CADASTRADO         ");
+                System.out.println("        AVISO: NÃO HÁ NENHUM USUÁRIO CADASTRADO         ");
                 System.out.println("========================================================");
             }
 
@@ -94,6 +94,8 @@ public class PacienteDAO {
                 PreparedStatement stmt = conexaoBanco.prepareStatement(buscaNoBanco);
         ) {
 
+        } catch (SQLException e) {
+            throw new RuntimeException("ERRO AO BUSCAR PACIENTE", e);
         }
     }
 }
