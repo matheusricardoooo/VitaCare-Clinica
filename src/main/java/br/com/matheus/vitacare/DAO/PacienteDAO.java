@@ -48,6 +48,35 @@ public class PacienteDAO {
         ) {
 
             ResultSet rs = stmt.executeQuery();
+            boolean buscaPorCadastros = false;
+            while (rs.next()) {
+                buscaPorCadastros = true;
+                int id = rs.getInt("id_paciente");
+                String nome = rs.getString("nome_paciente");
+                String telefone = rs.getString("telefone_paciente");
+                String cpf = rs.getString("cpf_paciente");
+                String email = rs.getString("email_paciente");
+                Date data = rs.getDate("data_nascimento_pasciente");
+
+                System.out.println("=================================================");
+                System.out.println("ID: " + id);
+                System.out.println("------------------------------------");
+                System.out.println("NOME: " + nome);
+                System.out.println("------------------------------------");
+                System.out.println("TELEFONE: " + telefone);
+                System.out.println("------------------------------------");
+                System.out.println("CPF: " + cpf);
+                System.out.println("------------------------------------");
+                System.out.println("EMAIL: " + email);
+                System.out.println("------------------------------------");
+                System.out.println("DATA NASCIMENTO: " + data);
+                System.out.println("=================================================");
+            }
+            if (!buscaPorCadastros) {
+                System.out.println("========================================================");
+                System.out.println("        AVISO: NÃO HA NENHUM USUÁRIO CADASTRADO         ");
+                System.out.println("========================================================");
+            }
 
         }
         catch (SQLException e) {
