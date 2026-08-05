@@ -134,5 +134,14 @@ public class PacienteDAO {
                 "UPDATE pacientes" +
                 "SET nome_paciente = ? " +
                 "WHERE cpf_paciente = ?";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+        ) {
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO BUSCAR PACIENTE", e);
+        }
     }
 }
