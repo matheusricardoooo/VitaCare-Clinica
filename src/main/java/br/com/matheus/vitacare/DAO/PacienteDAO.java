@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class PacienteDAO {
     public void cadastrarPaciente(Paciente paciente) {
@@ -24,7 +25,7 @@ public class PacienteDAO {
             stmt.setString(2, paciente.getTelefonePaciente());
             stmt.setString(3, paciente.getCpfPaciente());
             stmt.setString(4, paciente.getEmailPaciente());
-            stmt.setDate(5,Date.valueOf(paciente.getDataNascimentoPaciente()));
+            stmt.setDate(5, Date.valueOf(paciente.getDataNascimentoPaciente()));
 
             stmt.executeUpdate();
 
@@ -38,6 +39,12 @@ public class PacienteDAO {
     }
 
     public void visualizarPaacientesCadastrados() {
+        try (
 
+        ) {
+
+        } catch (SQLException e) {
+            throw new RuntimeException("ERRO AO CADASTRAR PACIENTE", e);
+        }
     }
 }
