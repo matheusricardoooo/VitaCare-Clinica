@@ -249,5 +249,14 @@ public class PacienteDAO {
         String deletarPacienteBanco =
                 "DELETE FROM pacientes " +
                         "WHERE cpf_paciente = ? ";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+        ) {
+
+        } catch (SQLException e) {
+            throw new RuntimeException("ERRO AO EXCLUIR PACIENTE", e);
+        }
     }
 }
