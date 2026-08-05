@@ -246,6 +246,8 @@ public class PacienteDAO {
     }
 
     public void deletarPaciente() {
-
+        String deletarPacienteBanco =
+                "DELETE FROM pacientes " +
+                        "WHERE cpf_paciente = ? ";
     }
 }
