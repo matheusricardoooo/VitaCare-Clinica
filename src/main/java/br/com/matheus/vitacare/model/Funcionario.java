@@ -7,6 +7,7 @@ public class Funcionario {
     private String nomeFuncionario;
     private String telefoneFuncionario;
     private String cpfFuncionario;
+    private String emailFuncionario;
     private LocalDate dataNascimentoFuncionario;
     private String cargoFuncionario;
     private LocalDate dataContratado;
@@ -17,6 +18,7 @@ public class Funcionario {
             String nomeFuncionario,
             String telefoneFuncionario,
             String cpfFuncionario,
+            String emailFuncionario,
             LocalDate dataNascimentoFuncionario,
             String cargoFuncionario,
             LocalDate dataContratado
@@ -24,6 +26,7 @@ public class Funcionario {
         this.nomeFuncionario = nomeFuncionario;
         this.telefoneFuncionario = telefoneFuncionario;
         this.cpfFuncionario = cpfFuncionario;
+        this.emailFuncionario = emailFuncionario;
         this.dataNascimentoFuncionario = dataNascimentoFuncionario;
         this.cargoFuncionario = cargoFuncionario;
         this.dataContratado = dataContratado;
@@ -43,6 +46,10 @@ public class Funcionario {
 
     public String getCpfFuncionario() {
         return cpfFuncionario;
+    }
+
+    public String getEmailFuncionario() {
+        return emailFuncionario;
     }
 
     public LocalDate getDataNascimentoFuncionario() {
