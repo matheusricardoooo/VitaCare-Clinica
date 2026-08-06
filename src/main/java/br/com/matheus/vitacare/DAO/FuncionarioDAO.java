@@ -3,10 +3,7 @@ package br.com.matheus.vitacare.DAO;
 import br.com.matheus.vitacare.database.ConexaoBd;
 import br.com.matheus.vitacare.model.Funcionario;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class FuncionarioDAO {
     public void cadastrarFuncionario(Funcionario funcionario) {
@@ -34,6 +31,58 @@ public class FuncionarioDAO {
             System.out.println("===========================================================");
             System.out.println("            FUNCIONÁRIO CADASTRADO COM SUCESSO!            ");
             System.out.println("===========================================================");
+
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO CADASTRAR FUNCIONÁRIO", e);
+        }
+    }
+
+    public void listarFuncionariosCadastrados() {
+
+        String consultaSql = "SELECT * FROM funcionarios";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(consultaSql)
+        ) {
+
+            ResultSet rs = stmt.executeQuery();
+            boolean buscaPorCadastros = false;
+            while (rs.next()) {
+                buscaPorCadastros = true;
+                int id = rs.getInt("id_funcionario");
+                String nome = rs.getString("nome_funcionario");
+                String telefone = rs.getString("telefone_funcionario");
+                String cpf = rs.getString("cpf_funcionario");
+                String email = rs.getString("email_funcionario");
+                Date dataNascimento = rs.getDate("data_nascimento_funcionario");
+                String cargo = rs.getString("cargo_funcionario");
+                Date dataContrato = rs.getDate("data_contratacao");
+
+                System.out.println("=================================================");
+                System.out.println("ID: " + id);
+                System.out.println("------------------------------------");
+                System.out.println("NOME: " + nome);
+                System.out.println("------------------------------------");
+                System.out.println("TELEFONE: " + telefone);
+                System.out.println("------------------------------------");
+                System.out.println("CPF: " + cpf);
+                System.out.println("------------------------------------");
+                System.out.println("EMAIL: " + email);
+                System.out.println("------------------------------------");
+                System.out.println("DATA NASCIMENTO: " + dataNascimento);
+                System.out.println("------------------------------------");
+                System.out.println("CARGO: " + cargo);
+                System.out.println("------------------------------------");
+                System.out.println("DATA CONTRATAÇÃO: " + dataContrato);
+                System.out.println("=================================================");
+            }
+            if (!buscaPorCadastros) {
+                System.out.println("============================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM FUNCIONÁRIO CADASTRADO         ");
+                System.out.println("============================================================");
+            }
 
         }
         catch (SQLException e) {
