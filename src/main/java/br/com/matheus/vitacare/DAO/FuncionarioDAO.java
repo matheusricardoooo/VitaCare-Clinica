@@ -140,4 +140,33 @@ public class FuncionarioDAO {
             throw new RuntimeException("ERRO AO BUSCAR FUNCIONÁRIO", e);
         }
     }
+
+    public void atualizarNomeFuncionario(String cpf, String novoNome) {
+        String atualizacaoBanco =
+                "UPDATE funcionarios " +
+                        "SET nome_funcionario = ? " +
+                        "WHERE cpf_funcionario = ?";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+        ) {
+            stmt.setString(1, novoNome);
+            stmt.setString(2, cpf);
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("================================================");
+                System.out.println("        SUCESSO: NOME ALTERADO COM ÊXITO        ");
+                System.out.println("================================================");
+            }
+            else {
+                System.out.println("==============================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM FUNCIONÁRIO COM ESTE CPF         ");
+                System.out.println("==============================================================");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO ATUALIZAR NOME DO FUNCIONÁRIO", e);
+        }
+    }
 }
