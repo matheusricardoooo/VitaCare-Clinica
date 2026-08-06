@@ -3,7 +3,11 @@ package br.com.matheus.vitacare.DAO;
 import br.com.matheus.vitacare.database.ConexaoBd;
 import br.com.matheus.vitacare.model.Funcionario;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class FuncionarioDAO {
     public void cadastrarFuncionario(Funcionario funcionario) {
