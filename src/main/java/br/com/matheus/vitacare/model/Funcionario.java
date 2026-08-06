@@ -28,4 +28,32 @@ public class Funcionario {
         this.cargoFuncionario = cargoFuncionario;
         this.dataContratado = dataContratado;
     }
+
+    public int getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public String getNomeFuncionario() {
+        return nomeFuncionario;
+    }
+
+    public String getTelefoneFuncionario() {
+        return telefoneFuncionario;
+    }
+
+    public String getCpfFuncionario() {
+        return cpfFuncionario;
+    }
+
+    public LocalDate getDataNascimentoFuncionario() {
+        return dataNascimentoFuncionario;
+    }
+
+    public String getCargoFuncionario() {
+        return cargoFuncionario;
+    }
+
+    public LocalDate getDataContratado() {
+        return dataContratado;
+    }
 }
