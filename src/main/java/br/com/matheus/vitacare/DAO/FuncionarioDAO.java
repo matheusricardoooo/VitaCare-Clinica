@@ -314,4 +314,32 @@ public class FuncionarioDAO {
             throw new RuntimeException("ERRO AO ATUALIZAR DATA DE CONTRATAÇÃO DO FUNCIONÁRIO", e);
         }
     }
+
+    public void deletarFuncionario(String cpf) {
+        String deletarFuncionarioBanco =
+                "DELETE FROM funcionarios " +
+                        "WHERE cpf_funcionario = ? ";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(deletarFuncionarioBanco);
+        ) {
+
+            stmt.setString(1, cpf);
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("=======================================================");
+                System.out.println("        SUCESSO: FUNCIONÁRIO DELETADO COM ÊXITO        ");
+                System.out.println("=======================================================");
+            }
+            else {
+                System.out.println("==============================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM FUNCIONÁRIO COM ESTE CPF         ");
+                System.out.println("==============================================================");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("ERRO AO EXCLUIR FUNCIONÁRIO", e);
+        }
+    }
 }
