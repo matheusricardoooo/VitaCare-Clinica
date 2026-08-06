@@ -173,8 +173,8 @@ public class FuncionarioDAO {
     public void atualizarTelefoneFuncionario(String cpf, String novoTelefone) {
         String atualizacaoBanco =
                 "UPDATE funcionarios " +
-                        "SET telefone_paciente = ? " +
-                        "WHERE cpf_paciente = ?";
+                        "SET telefone_funcionario = ? " +
+                        "WHERE cpf_funcionario = ?";
 
         try (
                 Connection conexaoBanco = ConexaoBd.getConnection();
@@ -196,6 +196,35 @@ public class FuncionarioDAO {
         }
         catch (SQLException e) {
             throw new RuntimeException("ERRO AO ATUALIZAR TELEFONE DO FUNCIONÁRIO", e);
+        }
+    }
+
+    public void atualizarEmailPaciente(String cpf, String novoEmail) {
+        String atualizacaoBanco =
+                "UPDATE funcionarios " +
+                        "SET email_funcionario = ? " +
+                        "WHERE cpf_funcionario = ?";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+        ) {
+            stmt.setString(1, novoEmail);
+            stmt.setString(2, cpf);
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("=================================================");
+                System.out.println("        SUCESSO: EMAIL ALTERADO COM ÊXITO        ");
+                System.out.println("=================================================");
+            }
+            else {
+                System.out.println("===========================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM PACIENTE COM ESTE CPF       ");
+                System.out.println("===========================================================");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO ATUALIZAR EMAIL DO PACIENTE", e);
         }
     }
 }
