@@ -284,4 +284,34 @@ public class FuncionarioDAO {
         catch (SQLException e) {
             throw new RuntimeException("ERRO AO ATUALIZAR CARGO DO FUNCIONÁRIO", e);
         }
-    }}
+    }
+
+    public void atualizarDataContratadoFuncionario(String cpf, String novoCargo) {
+        String atualizacaoBanco =
+                "UPDATE funcionarios " +
+                        "SET data_contratacao = ? " +
+                        "WHERE cpf_funcionario = ?";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+        ) {
+            stmt.setString(1, novoCargo);
+            stmt.setString(2, cpf);
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("================================================================");
+                System.out.println("        SUCESSO: DATA DE CONTRATRAÇÃO ALTERADO COM ÊXITO        ");
+                System.out.println("================================================================");
+            }
+            else {
+                System.out.println("===========================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM FUNCIONÁRIO COM ESTE CPF         ");
+                System.out.println("===========================================================");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO ATUALIZAR DATA DE CONTRATAÇÃO DO FUNCIONÁRIO", e);
+        }
+    }
+}
