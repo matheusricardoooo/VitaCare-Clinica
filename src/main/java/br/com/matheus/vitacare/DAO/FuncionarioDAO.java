@@ -199,7 +199,7 @@ public class FuncionarioDAO {
         }
     }
 
-    public void atualizarEmailPaciente(String cpf, String novoEmail) {
+    public void atualizarEmailFuncionario(String cpf, String novoEmail) {
         String atualizacaoBanco =
                 "UPDATE funcionarios " +
                         "SET email_funcionario = ? " +
@@ -225,6 +225,35 @@ public class FuncionarioDAO {
         }
         catch (SQLException e) {
             throw new RuntimeException("ERRO AO ATUALIZAR EMAIL DO PACIENTE", e);
+        }
+    }
+
+    public void atualizarAniversarioFuncionario(String cpf, String novaDataNascimento) {
+        String atualizacaoBanco =
+                "UPDATE pacientes " +
+                        "SET data_nascimento_funcionario = ? " +
+                        "WHERE cpf_funcionario = ?";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+        ) {
+            stmt.setString(1, novaDataNascimento);
+            stmt.setString(2, cpf);
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("==============================================================");
+                System.out.println("        SUCESSO: DATA DE NASCIMENTO ALTERADA COM ÊXITO        ");
+                System.out.println("==============================================================");
+            }
+            else {
+                System.out.println("===========================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM PACIENTE COM ESTE CPF         ");
+                System.out.println("===========================================================");
+            }
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO ATUALIZAR DATA DE NASCIMENTO DO FUNCIONÁRIO", e);
         }
     }
 }
