@@ -241,7 +241,7 @@ public class PacienteDAO {
             }
         }
         catch (SQLException e) {
-            throw new RuntimeException("ERRO AO ATUALIZAR TELEFONE DO PACIENTE", e);
+            throw new RuntimeException("ERRO AO ATUALIZAR DATA DE NASCIMENTO DO PACIENTE", e);
         }
     }
 
