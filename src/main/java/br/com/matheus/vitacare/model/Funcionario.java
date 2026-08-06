@@ -1,5 +1,11 @@
 package br.com.matheus.vitacare.model;
 
-public class Funcionario {
+import java.time.LocalDate;
 
+public class Funcionario {
+    private int id_funcionario;
+    private String nome_funcionario;
+    private String telefone_funcionario;
+    private String final cpf_funcionario;
+    private LocalDate data_nascimento_funcionario;
 }
