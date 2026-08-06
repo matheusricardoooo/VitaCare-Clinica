@@ -13,14 +13,15 @@ public class FuncionarioDAO {
                 "INSERT INTO funcionarios" +
                         "nome_funcionario, telefone_funcionario, cpf_funcionario " +
                         "email_funcionario, data_nascimento_funcionario, cargo_funcionario " +
-                        "data_contratado";
+                        "data_contratado" +
+                        "VALUES(?,?,?,?,?,?,?)";
 
         try (
                 Connection conexaoBanco = ConexaoBd.getConnection();
                 PreparedStatement stmt = conexaoBanco.prepareStatement(comandoSql);
         ) {
-
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             throw new RuntimeException("ERRO AO CADASTRAR FUNCIONÁRIO", e);
         }
     }
