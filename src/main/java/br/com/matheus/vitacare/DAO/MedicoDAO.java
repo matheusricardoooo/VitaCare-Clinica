@@ -12,7 +12,7 @@ public class MedicoDAO {
         String comandoSql =
                 "INSERT INTO medicos " +
                         "(id_funcionario, crm_medico, especialidade_medica) " +
-                        "VALUES(?,?,?)";
+                        "VALUES(?, ?, ?)";
 
         try (
                 Connection conexaoBanco = ConexaoBd.getConnection();
