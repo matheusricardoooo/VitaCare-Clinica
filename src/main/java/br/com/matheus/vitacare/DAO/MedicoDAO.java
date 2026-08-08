@@ -10,21 +10,22 @@ import java.sql.SQLException;
 public class MedicoDAO {
     public void cadastrarMedico(Medico medico) {
         String comandoSql =
-                "INSERT INTO medicos" +
-                        "crm_medico, especialidade_medica" +
-                        "VALUES(?,?)";
+                "INSERT INTO medicos " +
+                        "(id_funcionario, crm_medico, especialidade_medica) " +
+                        "VALUES(?,?,?)";
 
         try (
                 Connection conexaoBanco = ConexaoBd.getConnection();
                 PreparedStatement stmt = conexaoBanco.prepareStatement(comandoSql);
                 ) {
 
-            stmt.setString(1, medico.getCrmMedico());
-            stmt.setString(2, medico.getEspecialidadeMedica());
+            stmt.setInt(1, medico.getIdFuncionario());
+            stmt.setString(2, medico.getCrmMedico());
+            stmt.setString(3, medico.getEspecialidadeMedica());
             stmt.executeUpdate();
 
             System.out.println("===========================================================");
-            System.out.println("            FUNCIONÁRIO CADASTRADO COM SUCESSO!            ");
+            System.out.println("            MÉDICO CADASTRADO COM SUCESSO!            ");
             System.out.println("===========================================================");
 
         }
