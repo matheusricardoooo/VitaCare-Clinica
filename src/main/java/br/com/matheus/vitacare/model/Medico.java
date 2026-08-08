@@ -14,6 +14,18 @@ public class Medico {
     ) {
         this.idFuncionario = idFuncionario;
         this.crmMedico = crmMedico;
-        this.especialidadeMedica = especialidadeMedica
+        this.especialidadeMedica = especialidadeMedica;
+    }
+
+    public int getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public String getCrmMedico() {
+        return crmMedico;
+    }
+
+    public String getEspecialidadeMedica() {
+        return especialidadeMedica;
     }
 }
