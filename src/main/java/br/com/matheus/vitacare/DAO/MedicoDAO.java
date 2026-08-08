@@ -11,13 +11,13 @@ public class MedicoDAO {
     public void cadastrarMedico(Medico medico) {
         String comandoSql =
                 "INSERT INTO medicos" +
-                        "crm_medico, especialidade_medica";
+                        "crm_medico, especialidade_medica" +
+                        "VALUES(?,?)";
 
         try (
                 Connection conexaoBanco = ConexaoBd.getConnection();
                 PreparedStatement stmt = conexaoBanco.prepareStatement(comandoSql);
                 ) {
-
 
         }
         catch (SQLException e) {
