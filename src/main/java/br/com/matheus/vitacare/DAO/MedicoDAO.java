@@ -3,9 +3,7 @@ package br.com.matheus.vitacare.DAO;
 import br.com.matheus.vitacare.database.ConexaoBd;
 import br.com.matheus.vitacare.model.Medico;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MedicoDAO {
     public void cadastrarMedico(Medico medico) {
@@ -27,6 +25,59 @@ public class MedicoDAO {
             System.out.println("===========================================================");
             System.out.println("            MÉDICO CADASTRADO COM SUCESSO!            ");
             System.out.println("===========================================================");
+
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO CADASTRAR MÉDICO", e);
+        }
+    }
+
+    public void listarMedicoCadastrado() {
+        String consultaSql =
+                /*"Pegue os registros de medicos e encontre, na tabela funcionarios,
+                o funcionário que possui o mesmo id_funcionario."*/
+                "SELECT " +
+                        "m.id_funcionario, " +
+                        "f.nome_funcionario, " +
+                        "f.telefone_funcionario, " +
+                        "m.crm_medico, " +
+                        "m.especialidade_medica " +
+                        "FROM medicos m " +
+                        "INNER JOIN funcionarios f " +
+                        "ON m.id_funcionario = f.id_funcionario";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(consultaSql)
+        ) {
+
+            ResultSet rs = stmt.executeQuery();
+            boolean buscaPorCadastros = false;
+            while (rs.next()) {
+                buscaPorCadastros = true;
+                int id = rs.getInt("id_funcionario");
+                String nome = rs.getString("nome_funcionario");
+                String telefone = rs.getString("telefone_funcionario");
+                String crm = rs.getString("crm_medico");
+                Date especialidade = rs.getDate("especialidade_medica");
+
+                System.out.println("=================================================");
+                System.out.println("ID: " + id);
+                System.out.println("------------------------------------");
+                System.out.println("NOME: " + nome);
+                System.out.println("------------------------------------");
+                System.out.println("TELEFONE: " + telefone);
+                System.out.println("------------------------------------");
+                System.out.println("CPF: " + crm);
+                System.out.println("------------------------------------");
+                System.out.println("EMAIL: " + especialidade);
+                System.out.println("=================================================");
+            }
+            if (!buscaPorCadastros) {
+                System.out.println("=======================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM MÉDICO CADASTRADO         ");
+                System.out.println("========================================================");
+            }
 
         }
         catch (SQLException e) {
