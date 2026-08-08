@@ -12,10 +12,10 @@ import java.sql.ResultSet;
 public class PacienteDAO {
     public void cadastrarPaciente(Paciente paciente) {
         String comandoSql =
-                "INSERT INTO pacientes" +
+                "INSERT INTO pacientes " +
                         "(nome_paciente, telefone_paciente, cpf_paciente," +
-                        " email_paciente,data_nascimento_paciente)" +
-                        "VALUES(?,?,?,?,?)";
+                        " email_paciente,data_nascimento_paciente) " +
+                        "VALUES(?, ?, ?, ?, ?)";
 
         try(
                 Connection conexaoBanco = ConexaoBd.getConnection();
