@@ -19,6 +19,14 @@ public class MedicoDAO {
                 PreparedStatement stmt = conexaoBanco.prepareStatement(comandoSql);
                 ) {
 
+            stmt.setString(1, medico.getCrmMedico());
+            stmt.setString(2, medico.getEspecialidadeMedica());
+            stmt.executeUpdate();
+
+            System.out.println("===========================================================");
+            System.out.println("            FUNCIONÁRIO CADASTRADO COM SUCESSO!            ");
+            System.out.println("===========================================================");
+
         }
         catch (SQLException e) {
             throw new RuntimeException("ERRO AO CADASTRAR MÉDICO", e);
