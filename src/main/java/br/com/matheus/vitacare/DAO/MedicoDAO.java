@@ -12,5 +12,16 @@ public class MedicoDAO {
         String comandoSql =
                 "INSERT INTO medicos" +
                         "crm_medico, especialidade_medica";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(comandoSql);
+                ) {
+
+
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO CADASTRAR MÉDICO", e);
+        }
     }
 }
