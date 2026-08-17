@@ -37,4 +37,8 @@ public class ConsultaDAO {
             throw new RuntimeException("ERRO AO CADASTRAR UMA CONSULTA", e);
         }
     }
+
+    public void visualizarConsultas() {
+
+    }
 }
