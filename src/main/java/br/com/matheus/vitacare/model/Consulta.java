@@ -28,4 +28,28 @@ public class Consulta {
         this.horaConsulta = hora_consulta;
         this.statusConsulta = status_consulta;
     }
+
+    public int getIdConsulta() {
+        return idConsulta;
+    }
+
+    public int getIdMedico() {
+        return idMedico;
+    }
+
+    public int getIdPaciente() {
+        return idPaciente;
+    }
+
+    public LocalDate getDataConsulta() {
+        return dataConsulta;
+    }
+
+    public LocalTime getHoraConsulta() {
+        return horaConsulta;
+    }
+
+    public String getStatusConsulta() {
+        return statusConsulta;
+    }
 }
