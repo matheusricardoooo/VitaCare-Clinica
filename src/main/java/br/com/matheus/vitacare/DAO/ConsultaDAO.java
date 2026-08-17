@@ -54,5 +54,17 @@ public class ConsultaDAO {
                         "INNER JOIN pacientes p ON c.id_paciente = p.id_paciente" +
                         "INNER JOIN medicos m ON c.id_medico = m.id_funcionario" +
                         "INNER JOIN funcionarios f ON m.id_funcionario = f.id_funcionario";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(comandoSql);
+                ) {
+
+
+
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO VISUALIZAR CONSULTAS CADASTRADAS", e);
+        }
     }
 }
