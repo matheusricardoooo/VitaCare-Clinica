@@ -34,7 +34,7 @@ public class ConsultaDAO {
 
         }
         catch (SQLException e) {
-            throw new RuntimeException("ERRO AO CADASTRAR NOVA CONSULTA", e);
+            throw new RuntimeException("ERRO AO CADASTRAR UMA CONSULTA", e);
         }
     }
 }
