@@ -127,7 +127,41 @@ public class ConsultaDAO {
                 PreparedStatement stmt = conexaoBanco.prepareStatement(buscaNoBanco);
         ) {
 
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                int idF = rs.getInt("id_consulta");
+                String nomeP = rs.getString("nome_paciente");
+                String cpf = rs.getString("cpf_paciente");
+                String nomeM = rs.getString("nome_medico");
+                String especialidade = rs.getString("especialidade_medica");
+                Date data = rs.getDate("data_consulta");
+                Time horario = rs.getTime("hora_consulta");
+                String status = rs.getString("status_consulta");
 
+                System.out.println("=================================================");
+                System.out.println("ID: " + idF);
+                System.out.println("------------------------------------");
+                System.out.println("NOME DO PACIENTE: " + nomeP);
+                System.out.println("------------------------------------");
+                System.out.println("CPF DO PACIENTE: " + cpf);
+                System.out.println("------------------------------------");
+                System.out.println("NOME DO MÉDICO: " + nomeM);
+                System.out.println("------------------------------------");
+                System.out.println("ESPECIALIDADE: " + especialidade);
+                System.out.println("------------------------------------");
+                System.out.println("DATA DA CONSULTA: " + data);
+                System.out.println("------------------------------------");
+                System.out.println("HORÁRIO DA CONSULTA: " + horario);
+                System.out.println("------------------------------------");
+                System.out.println("STATUS DA CONSULTA: " + status);
+                System.out.println("=================================================");
+            }
+            else {
+                System.out.println("==============================================================");
+                System.out.println("        AVISO: NÃO HÁ CONSULTA COM ESTE ID CADASTRADO         ");
+                System.out.println("==============================================================");
+            }
 
         } catch (SQLException e) {
             throw new RuntimeException("ERRO AO BUSCAR MÉDICO", e);
