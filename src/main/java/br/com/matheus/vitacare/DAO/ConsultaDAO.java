@@ -121,5 +121,16 @@ public class ConsultaDAO {
                         "INNER JOIN medicos m ON c.id_medico = m.id_funcionario" +
                         "INNER JOIN funcionarios f ON m.id_funcionario = f.id_funcionario" +
                         "WHERE c.id_consulta = ?";
+
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(buscaNoBanco);
+        ) {
+
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException("ERRO AO BUSCAR MÉDICO", e);
+        }
     }
 }
