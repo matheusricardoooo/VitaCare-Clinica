@@ -59,7 +59,7 @@ public class MedicoDAO {
                 String nome = rs.getString("nome_funcionario");
                 String telefone = rs.getString("telefone_funcionario");
                 String crm = rs.getString("crm_medico");
-                Date especialidade = rs.getDate("especialidade_medica");
+                String especialidade = rs.getString("especialidade_medica");
 
                 System.out.println("=================================================");
                 System.out.println("ID: " + id);
@@ -68,9 +68,9 @@ public class MedicoDAO {
                 System.out.println("------------------------------------");
                 System.out.println("TELEFONE: " + telefone);
                 System.out.println("------------------------------------");
-                System.out.println("CPF: " + crm);
+                System.out.println("CRM: " + crm);
                 System.out.println("------------------------------------");
-                System.out.println("EMAIL: " + especialidade);
+                System.out.println("ESPECIALIDADE: " + especialidade);
                 System.out.println("=================================================");
             }
             if (!buscaPorCadastros) {
