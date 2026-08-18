@@ -105,5 +105,21 @@ public class ConsultaDAO {
     }
 
     public void buscarConsultaPorId(int id) {
+        String buscaNoBanco =
+                "SELECT " +
+                        "c.id_consulta, " +
+                        "p.nome_paciente, " +
+                        "p.cpf_paciente, " +
+                        "f.nome_funcionario AS nome_medico, " +
+                        "m.crm_medico, " +
+                        "m.especialidade_medica, " +
+                        "c.data_consulta, " +
+                        "c.hora_consulta, " +
+                        "c.status_consulta " +
+                        "FROM consultas c " +
+                        "INNER JOIN pacientes p ON c.id_paciente = p.id_paciente" +
+                        "INNER JOIN medicos m ON c.id_medico = m.id_funcionario" +
+                        "INNER JOIN funcionarios f ON m.id_funcionario = f.id_funcionario" +
+                        "WHERE c.id_consulta = ?";
     }
 }
