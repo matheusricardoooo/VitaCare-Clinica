@@ -103,4 +103,7 @@ public class ConsultaDAO {
             throw new RuntimeException("ERRO AO VISUALIZAR CONSULTAS CADASTRADAS", e);
         }
     }
+
+    public void buscarConsultaPorId(int id) {
+    }
 }
