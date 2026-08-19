@@ -205,7 +205,10 @@ public class ConsultaDAO {
                         "SET data_consulta = ? " +
                         "WHERE id_consulta = ?";
 
-        try() {
+        try(
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+                ) {
 
         } catch (SQLException e) {
             throw new RuntimeException("ERRO AO ATUALIZAR DATA DA CONSULTA", e);
