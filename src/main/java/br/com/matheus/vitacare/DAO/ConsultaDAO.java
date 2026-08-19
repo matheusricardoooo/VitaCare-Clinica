@@ -204,5 +204,11 @@ public class ConsultaDAO {
                 "UPDATE consultas " +
                         "SET data_consulta = ? " +
                         "WHERE id_consulta = ?";
+
+        try() {
+
+        } catch (SQLException e) {
+            throw new RuntimeException("ERRO AO ATUALIZAR DATA DA CONSULTA", e);
+        }
     }
 }
