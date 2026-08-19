@@ -130,7 +130,7 @@ public class ConsultaDAO {
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                int idF = rs.getInt("id_consulta");
+                int idC = rs.getInt("id_consulta");
                 String nomeP = rs.getString("nome_paciente");
                 String cpf = rs.getString("cpf_paciente");
                 String nomeM = rs.getString("nome_medico");
@@ -168,7 +168,10 @@ public class ConsultaDAO {
         }
     }
 
-    public void atualizarStatusConsulta() {
-
+    public void atualizarStatusConsulta(int idConsulta, String statusAtualizado) {
+        String atualizacaoBanco =
+                "UPDATE consultas " +
+                        "SET status_consulta = ? " +
+                        "WHERE id_consulta = ?";
     }
 }
