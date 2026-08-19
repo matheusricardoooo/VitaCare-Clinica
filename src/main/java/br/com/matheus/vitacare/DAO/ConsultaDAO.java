@@ -140,7 +140,7 @@ public class ConsultaDAO {
                 String status = rs.getString("status_consulta");
 
                 System.out.println("=================================================");
-                System.out.println("ID: " + idF);
+                System.out.println("ID: " + idC);
                 System.out.println("------------------------------------");
                 System.out.println("NOME DO PACIENTE: " + nomeP);
                 System.out.println("------------------------------------");
@@ -174,7 +174,10 @@ public class ConsultaDAO {
                         "SET status_consulta = ? " +
                         "WHERE id_consulta = ?";
 
-        try () {
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+                ) {
 
         }
         catch (SQLException e) {
