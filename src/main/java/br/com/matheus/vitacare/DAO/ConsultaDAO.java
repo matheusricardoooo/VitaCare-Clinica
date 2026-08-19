@@ -179,6 +179,20 @@ public class ConsultaDAO {
                 PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
                 ) {
 
+            stmt.setString(1, statusAtualizado);
+            stmt.setInt(2, idConsulta);
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("================================================");
+                System.out.println("        SUCESSO: NOME ALTERADO COM ÊXITO        ");
+                System.out.println("================================================");
+            }
+            else {
+                System.out.println("==============================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUM FUNCIONÁRIO COM ESTE CPF         ");
+                System.out.println("==============================================================");
+            }
+
         }
         catch (SQLException e) {
             throw new RuntimeException("ERRO AO ATUALIZAR STATUS DA CONSULTA MÉDICA", e);
