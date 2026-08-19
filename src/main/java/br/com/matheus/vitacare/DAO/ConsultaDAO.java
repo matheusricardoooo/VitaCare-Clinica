@@ -198,4 +198,8 @@ public class ConsultaDAO {
             throw new RuntimeException("ERRO AO ATUALIZAR STATUS DA CONSULTA MÉDICA", e);
         }
     }
+
+    public void atualizarDataConsulta(int idConsulta, LocalDate dataAtualizada) {
+
+    }
 }
