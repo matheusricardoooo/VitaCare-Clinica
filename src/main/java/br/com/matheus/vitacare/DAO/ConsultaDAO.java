@@ -167,4 +167,8 @@ public class ConsultaDAO {
             throw new RuntimeException("ERRO AO BUSCAR MÉDICO", e);
         }
     }
+
+    public void atualizarStatusConsulta() {
+
+    }
 }
