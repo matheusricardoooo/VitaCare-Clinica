@@ -173,5 +173,12 @@ public class ConsultaDAO {
                 "UPDATE consultas " +
                         "SET status_consulta = ? " +
                         "WHERE id_consulta = ?";
+
+        try () {
+
+        }
+        catch (SQLException e) {
+            throw new RuntimeException("ERRO AO ATUALIZAR STATUS DA CONSULTA MÉDICA", e);
+        }
     }
 }
