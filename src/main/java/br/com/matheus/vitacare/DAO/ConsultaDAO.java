@@ -200,6 +200,9 @@ public class ConsultaDAO {
     }
 
     public void atualizarDataConsulta(int idConsulta, LocalDate dataAtualizada) {
-
+        String atualizacaoBanco =
+                "UPDATE consultas " +
+                        "SET data_consulta = ? " +
+                        "WHERE id_consulta = ?";
     }
 }
