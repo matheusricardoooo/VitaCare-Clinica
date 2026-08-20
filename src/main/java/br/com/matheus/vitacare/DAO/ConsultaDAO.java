@@ -236,7 +236,10 @@ public class ConsultaDAO {
                         "SET hora_consulta = ? " +
                         "WHERE id_consulta = ?";
 
-        try () {
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+                ) {
 
         }
         catch(SQLException e) {
