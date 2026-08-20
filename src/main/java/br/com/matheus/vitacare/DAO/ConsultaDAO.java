@@ -210,6 +210,20 @@ public class ConsultaDAO {
                 PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
                 ) {
 
+            stmt.setInt(1,idConsulta);
+            stmt.setDate(2,Date.valueOf(dataAtualizada));
+            int linhasAfetadas = stmt.executeUpdate();
+            if (linhasAfetadas > 0) {
+                System.out.println("============================================================");
+                System.out.println("        SUCESSO: DATA DE CONSULTA ALTERADA COM ÊXITO        ");
+                System.out.println("============================================================");
+            }
+            else {
+                System.out.println("==========================================================");
+                System.out.println("        AVISO: NÃO HÁ NENHUA CONSULTA COM ESTE ID         ");
+                System.out.println("==========================================================");
+            }
+
         } catch (SQLException e) {
             throw new RuntimeException("ERRO AO ATUALIZAR DATA DA CONSULTA", e);
         }
