@@ -235,5 +235,12 @@ public class ConsultaDAO {
                 "UPDATE consultas " +
                         "SET hora_consulta = ? " +
                         "WHERE id_consulta = ?";
+
+        try () {
+
+        }
+        catch(SQLException e) {
+            throw new RuntimeException("ERRO AO ATUALIZAR HORÁRIO DA CONSULTA", e);
+        }
     }
 }
