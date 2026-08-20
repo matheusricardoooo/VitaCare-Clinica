@@ -5,6 +5,7 @@ import br.com.matheus.vitacare.model.Consulta;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class ConsultaDAO {
     public void criarConsulta(Consulta consulta) {
@@ -229,7 +230,10 @@ public class ConsultaDAO {
         }
     }
 
-    public void atualizarHoraConsulta() {
-
+    public void atualizarHoraConsulta(int idConsulta, LocalTime horaAtualizada) {
+        String atualizacaoBanco =
+                "UPDATE consultas " +
+                        "SET hora_consulta = ? " +
+                        "WHERE id_consulta = ?";
     }
 }
