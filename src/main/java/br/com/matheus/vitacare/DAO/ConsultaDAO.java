@@ -228,4 +228,8 @@ public class ConsultaDAO {
             throw new RuntimeException("ERRO AO ATUALIZAR DATA DA CONSULTA", e);
         }
     }
+
+    public void atualizarHoraConsulta() {
+
+    }
 }
