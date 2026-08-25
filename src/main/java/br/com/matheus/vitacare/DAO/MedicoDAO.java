@@ -136,6 +136,9 @@ public class MedicoDAO {
     }
 
     public void atualizarEspecialidade(String crm, String novaEspecialidade) {
-        
+        String atualizacaoBanco =
+                "UPDATE medicos " +
+                "SET especialidade_medica = ?" +
+                "WHERE crm_medico = ?";
     }
 }
