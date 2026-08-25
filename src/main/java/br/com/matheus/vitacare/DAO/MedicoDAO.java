@@ -134,4 +134,8 @@ public class MedicoDAO {
             throw new RuntimeException("ERRO AO BUSCAR MÉDICO", e);
         }
     }
+
+    public void atualizarEspecialidade(String crm, String novaEspecialidade) {
+        
+    }
 }
