@@ -140,5 +140,11 @@ public class MedicoDAO {
                 "UPDATE medicos " +
                 "SET especialidade_medica = ?" +
                 "WHERE crm_medico = ?";
+
+        try () {
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
