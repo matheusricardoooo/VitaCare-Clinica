@@ -141,7 +141,10 @@ public class MedicoDAO {
                 "SET especialidade_medica = ?" +
                 "WHERE crm_medico = ?";
 
-        try () {
+        try (
+                Connection conexaoBanco = ConexaoBd.getConnection();
+                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
+                ) {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
