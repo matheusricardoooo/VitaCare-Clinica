@@ -216,35 +216,6 @@ public class PacienteDAO {
         }
     }
 
-    public void atualizarAniversarioPaciente(String cpf, String novaDataNascimento) {
-        String atualizacaoBanco =
-                "UPDATE pacientes " +
-                        "SET data_nascimento_paciente = ? " +
-                        "WHERE cpf_paciente = ?";
-
-        try (
-                Connection conexaoBanco = ConexaoBd.getConnection();
-                PreparedStatement stmt = conexaoBanco.prepareStatement(atualizacaoBanco);
-        ) {
-            stmt.setString(1, novaDataNascimento);
-            stmt.setString(2, cpf);
-            int linhasAfetadas = stmt.executeUpdate();
-            if (linhasAfetadas > 0) {
-                System.out.println("==============================================================");
-                System.out.println("        SUCESSO: DATA DE NASCIMENTO ALTERADA COM ÊXITO        ");
-                System.out.println("==============================================================");
-            }
-            else {
-                System.out.println("===========================================================");
-                System.out.println("        AVISO: NÃO HÁ NENHUM PACIENTE COM ESTE CPF         ");
-                System.out.println("===========================================================");
-            }
-        }
-        catch (SQLException e) {
-            throw new RuntimeException("ERRO AO ATUALIZAR DATA DE NASCIMENTO DO PACIENTE", e);
-        }
-    }
-
     public void deletarPaciente(String cpf) {
         String deletarPacienteBanco =
                 "DELETE FROM pacientes " +
