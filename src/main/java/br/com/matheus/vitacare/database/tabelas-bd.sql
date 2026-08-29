@@ -44,28 +44,3 @@ CREATE TABLE consultas (
 		FOREIGN KEY(id_medico)
 		REFERENCES medicos(id_funcionario)
 );
-
-CREATE TABLE prontuarios (
-	id_prontuario SERIAL PRIMARY KEY,
-	id_consulta INT NOT NULL,
-	diagnostico_prontuario VARCHAR(500) NOT NULL,
-	observacao_prontuario VARCHAR(500),
-	data_prontuario DATE NOT NULL,
-
-	CONSTRAINT fk_consulta_prontuario
-		FOREIGN KEY(id_consulta)
-		REFERENCES consultas(id_consulta)
-);
-
-CREATE TABLE receitas (
-	id_receita SERIAL PRIMARY KEY,
-	id_prontuario INT NOT NULL,
-	medicamento_receita VARCHAR(50) NOT NULL,
-	dosagem VARCHAR(50) NOT NULL,
-	frequencia VARCHAR(50) NOT NULL,
-	duracao_tratamento VARCHAR(50) NOT NULL,
-
-	CONSTRAINT fk_receita_prontuario
-		FOREIGN KEY(id_prontuario)
-		REFERENCES prontuarios (id_prontuario)
-);
